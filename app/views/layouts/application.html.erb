@@ -9,9 +9,25 @@
   </head>
 
   <body>
+
+    <nav style=" width:100%;
+        background-color: #ffa31a;" class="navbar navbar-default">
+     <% if current_user %>
+       <p>Hello, <%= current_user.name %>!
+       <%= link_to 'Chat Rooms', chat_rooms_path %>
+       <%= link_to 'Unread', unread_messages_path %>
+       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn', style: 'background-color: white' %>
+     <% else %>
+       <%= link_to 'Register', new_user_registration_path %>
+       <%= link_to 'Login', new_user_session_path %>
+     <% end %>
+    </nav>
+
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "alert alert-info" %>
     <% end %>
+
     <%= yield %>
+
   </body>
 </html>
