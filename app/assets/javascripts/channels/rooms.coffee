@@ -18,6 +18,8 @@ jQuery(document).on 'turbolinks:load', ->
      received: (data) ->
        messages.append data['message']
        messages_to_bottom()
+       @perform 'read_message', message_id: data['message_id'], chat_room_id: data['chat_room_id']
+
 
      send_message: (message, chat_room_id) ->
        @perform 'send_message', message: message, chat_room_id: chat_room_id
@@ -30,3 +32,5 @@ jQuery(document).on 'turbolinks:load', ->
          textarea.val('')
        e.preventDefault()
        return false
+
+
