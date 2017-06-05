@@ -1,13 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
+This README tries to document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Things I want to cover:
 
-* Ruby version
+* Ruby version <br/> 2.4.0 <br/>
 
-* System dependencies
+* System dependencies <br/> Redis (available for nix, via Homebrew and for Windows, as well) <br/>
 
 * Configuration
 
