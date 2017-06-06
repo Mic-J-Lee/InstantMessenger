@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :chat_room_users
+  has_many :chat_rooms, through: :chat_room_users
 end
