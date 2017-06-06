@@ -25,6 +25,11 @@ class ChatRoomsController < ApplicationController
       current_user.chat_rooms << @chat_room
       current_user.chat_room_users.last.last_read_message = @chat_room.messages.last.id
     end
+    chat_room_user = @chat_room.chat_room_users.find_by(user_id: current_user.id)
+    if @chat_room.messages.last.id > chat_room_user.last_read_message
+      chat_room_user.last_read_message = @chat_room.messages.last.id
+      chat_room_user.save
+    end
     @message = Message.new
   end
 
